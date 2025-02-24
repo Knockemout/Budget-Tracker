@@ -13,7 +13,7 @@ public class ExpenseForm extends JFrame {
     private JButton saveButton;
     private ExpenseTable expenseTable;
 
-    public ExpenseForm(ExpenseTable table) {
+    public ExpenseForm(ExpenseTable table, SummaryPanel summaryPanel) {
         this.expenseTable = table;
 
         setTitle("Add Expense");

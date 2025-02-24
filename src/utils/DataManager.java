@@ -1,37 +1,59 @@
 package utils;
 
 import models.Expense;
+import models.Income;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
-    private static final String FILE_NAME = "expenses.dat";
+    private static final String EXPENSE_FILE = "expenses.dat";
+    private static final String INCOME_FILE = "incomes.dat";
 
     public static void addExpense(Expense expense) {
         List<Expense> expenses = getAllExpenses();
         expenses.add(expense);
-        saveExpenses(expenses);
+        saveData(EXPENSE_FILE, expenses);
     }
 
     public static List<Expense> getAllExpenses() {
-        File file = new File(FILE_NAME);
-        if (!file.exists()) return new ArrayList<>();
+        return (List<Expense>) loadData(EXPENSE_FILE);
+    }
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Expense>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+    public static void addIncome(Income income) {
+        List<Income> incomes = getAllIncomes();
+        incomes.add(income);
+        saveData(INCOME_FILE, incomes);
+    }
+
+    public static List<Income> getAllIncomes() {
+        return (List<Income>) loadData(INCOME_FILE);
+    }
+
+    public static double getTotalIncome() {
+        return getAllIncomes().stream().mapToDouble(Income::getAmount).sum();
+    }
+
+    public static double getTotalExpenses() {
+        return getAllExpenses().stream().mapToDouble(Expense::getAmount).sum();
+    }
+
+    private static void saveData(String file, Object data) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(data);
+        } catch (IOException e) {
             e.printStackTrace();
-            return new ArrayList<>();
         }
     }
 
-    private static void saveExpenses(List<Expense> expenses) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(expenses);
-        } catch (IOException e) {
-            e.printStackTrace();
+    private static Object loadData(String file) {
+        File f = new File(file);
+        if (!f.exists()) return new ArrayList<>();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            return ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            return new ArrayList<>();
         }
     }
 }
