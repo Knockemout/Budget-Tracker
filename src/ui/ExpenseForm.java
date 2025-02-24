@@ -25,7 +25,7 @@ public class ExpenseForm extends JFrame {
         add(amountField);
 
         add(new JLabel("Category:"));
-        String[] categories = {"Food", "Transport", "Entertainment", "Other"};
+        String[] categories = {"Food", "Transport", "Clothing", "Laundary", "Hospital", "Entertainment", "Other"};
         categoryBox = new JComboBox<>(categories);
         add(categoryBox);
 
