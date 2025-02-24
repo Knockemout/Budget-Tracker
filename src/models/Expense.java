@@ -20,4 +20,6 @@ public class Expense implements Serializable {
     public String getCategory() { return category; }
     public String getDescription() { return description; }
     public Date getDate() { return date; }
+
+
 }

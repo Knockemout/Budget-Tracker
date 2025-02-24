@@ -17,6 +17,14 @@ public class DataManager {
         saveData(EXPENSE_FILE, expenses);
     }
 
+    public static void deleteExpense(int index) {
+        List<Expense> expenses = getAllExpenses();
+        if (index >= 0 && index < expenses.size()) {
+            expenses.remove(index);
+            saveData(EXPENSE_FILE, expenses);
+        }
+    }
+
     public static List<Expense> getAllExpenses() {
         return (List<Expense>) loadData(EXPENSE_FILE);
     }
@@ -25,6 +33,14 @@ public class DataManager {
         List<Income> incomes = getAllIncomes();
         incomes.add(income);
         saveData(INCOME_FILE, incomes);
+    }
+
+    public static void deleteIncome(int index) {
+        List<Income> incomes = getAllIncomes();
+        if (index >= 0 && index < incomes.size()) {
+            incomes.remove(index);
+            saveData(INCOME_FILE, incomes);
+        }
     }
 
     public static List<Income> getAllIncomes() {
