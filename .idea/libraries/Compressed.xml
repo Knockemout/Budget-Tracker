@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="Compressed">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/Compressed" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/Compressed/Simple Account Management System In Java/src" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/build/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/demo/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/generated/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/legacy/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/main/core-api/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/main/core-impl/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/main/protocol-impl/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/main/user-api/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/main/user-impl/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/Compressed" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/Compressed" recursive="false" type="SOURCES" />
+  </library>
+</component>
