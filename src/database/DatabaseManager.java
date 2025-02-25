@@ -11,7 +11,6 @@ public class DatabaseManager {
     public static Connection connect() {
         Connection conn = null;
         try {
-            // Load SQLite JDBC Driver explicitly
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(DB_URL);
         } catch (ClassNotFoundException e) {

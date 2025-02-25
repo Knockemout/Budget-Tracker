@@ -50,7 +50,7 @@ public class IncomeForm extends JFrame {
         add(sourceField, gbc);
 
         saveButton = new JButton("💾 Save Income");
-        saveButton.setBackground(new Color(76, 175, 80)); // Green Button
+        saveButton.setBackground(new Color(76, 175, 80));
         saveButton.setForeground(Color.WHITE);
         saveButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         saveButton.setFocusPainted(false);

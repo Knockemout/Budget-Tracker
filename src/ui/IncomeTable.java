@@ -27,14 +27,12 @@ public class IncomeTable extends JPanel {
         titleLabel.setForeground(new Color(34, 139, 34));
         add(titleLabel, BorderLayout.NORTH);
 
-        // Table model and JTable setup
         tableModel = new DefaultTableModel(new String[]{"Amount ($)", "Source", "Date"}, 0);
         table = new JTable(tableModel);
         styleTable();
 
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        // Delete button styling
         deleteButton = new JButton("🗑 Delete Income");
         deleteButton.setBackground(new Color(200, 0, 0));
         deleteButton.setForeground(Color.WHITE);
@@ -52,13 +50,11 @@ public class IncomeTable extends JPanel {
         table.setRowHeight(25);
         table.setGridColor(Color.LIGHT_GRAY);
 
-        // Header Styling
         JTableHeader header = table.getTableHeader();
         header.setFont(new Font("SansSerif", Font.BOLD, 14));
         header.setBackground(new Color(60, 60, 60));
         header.setForeground(Color.WHITE);
 
-        // Centering table data
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         for (int i = 0; i < table.getColumnCount(); i++) {

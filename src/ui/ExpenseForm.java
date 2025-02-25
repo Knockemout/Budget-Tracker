@@ -20,7 +20,7 @@ public class ExpenseForm extends JFrame {
         setSize(350, 260);
         setLayout(new GridBagLayout());
         setResizable(false);
-        setLocationRelativeTo(null); // Center the form
+        setLocationRelativeTo(null);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 10, 8, 10);
@@ -60,7 +60,7 @@ public class ExpenseForm extends JFrame {
         add(descriptionField, gbc);
 
         saveButton = new JButton("💾 Save Expense");
-        saveButton.setBackground(new Color(244, 67, 54)); // Red Button
+        saveButton.setBackground(new Color(244, 67, 54));
         saveButton.setForeground(Color.WHITE);
         saveButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         saveButton.setFocusPainted(false);

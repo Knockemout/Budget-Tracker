@@ -12,7 +12,7 @@ public class SummaryPanel extends JPanel {
 
     public SummaryPanel() {
         setLayout(new GridLayout(2, 2, 10, 10));
-        setBackground(new Color(245, 245, 245)); // Light Gray Background
+        setBackground(new Color(245, 245, 245));
         setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         Font labelFont = new Font("SansSerif", Font.BOLD, 14);
@@ -21,7 +21,7 @@ public class SummaryPanel extends JPanel {
         totalExpensesLabel = createStyledLabel("Total Expenses: $0.00", new Color(200, 0, 0), labelFont);
         balanceLabel = createStyledLabel("Remaining Balance: $0.00", new Color(0, 102, 204), labelFont);
 
-        showTotalsButton = new JButton("💰 Show Totals");
+        showTotalsButton = new JButton("💰 Totals");
         showTotalsButton.setBackground(new Color(60, 120, 200));
         showTotalsButton.setForeground(Color.WHITE);
         showTotalsButton.setFocusPainted(false);

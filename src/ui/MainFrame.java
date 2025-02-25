@@ -21,21 +21,17 @@ public class MainFrame extends JFrame {
         ExpenseTable expenseTable = new ExpenseTable(summaryPanel);
         IncomeTable incomeTable = new IncomeTable(summaryPanel);
 
-        // Panel to hold both tables
         JPanel tablesPanel = new JPanel(new GridLayout(1, 2, 10, 10));
         tablesPanel.add(expenseTable);
         tablesPanel.add(incomeTable);
         tablesPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Buttons with styling
         JButton addExpenseBtn = createStyledButton("➕ Add Expense", new Color(60, 150, 80));
         JButton addIncomeBtn = createStyledButton("💰 Add Income", new Color(60, 120, 200));
 
         addExpenseBtn.addActionListener(e -> new ExpenseForm(expenseTable, summaryPanel));
         addIncomeBtn.addActionListener(e -> new IncomeForm(incomeTable, summaryPanel));
 
-        // Create and style the Clear Form button
-        // Create and style the Clear All button
         JButton clearAllButton = new JButton("Clear All Data");
         clearAllButton.setBackground(new Color(220, 20, 60));  // Crimson Red
         clearAllButton.setForeground(Color.WHITE);
@@ -51,11 +47,9 @@ public class MainFrame extends JFrame {
             );
 
             if (confirm == JOptionPane.YES_OPTION) {
-                // Call DataManager to clear all data
                 DataManager.clearAllExpenses();
                 DataManager.clearAllIncomes();
 
-                // Refresh UI
                 expenseTable.refreshTable();
                 incomeTable.refreshTable();
                 summaryPanel.refreshSummary();
@@ -64,16 +58,12 @@ public class MainFrame extends JFrame {
             }
         });
 
-
-// Set up the button panel and add buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         buttonPanel.add(addExpenseBtn);
         buttonPanel.add(addIncomeBtn);
         buttonPanel.add(clearAllButton); // Add Clear All button
         buttonPanel.setBackground(Color.LIGHT_GRAY);
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-// Add panel to the South position
         add(buttonPanel, BorderLayout.SOUTH);
 
 
@@ -86,6 +76,7 @@ public class MainFrame extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
