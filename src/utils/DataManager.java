@@ -72,4 +72,14 @@ public class DataManager {
             return new ArrayList<>();
         }
     }
+
+    public static void clearAllExpenses() {
+        saveData(EXPENSE_FILE, new ArrayList<Expense>());
+    }
+
+    public static void clearAllIncomes() {
+        saveData(INCOME_FILE, new ArrayList<Income>());
+    }
+
+
 }

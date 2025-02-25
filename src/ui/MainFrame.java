@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import utils.DataManager;
 
 public class MainFrame extends JFrame {
     public MainFrame() {
@@ -33,9 +34,50 @@ public class MainFrame extends JFrame {
         addExpenseBtn.addActionListener(e -> new ExpenseForm(expenseTable, summaryPanel));
         addIncomeBtn.addActionListener(e -> new IncomeForm(incomeTable, summaryPanel));
 
-        JPanel buttonPanel = new JPanel();
+        // Create and style the Clear Form button
+        // Create and style the Clear All button
+        JButton clearAllButton = new JButton("Clear All Data");
+        clearAllButton.setBackground(new Color(220, 20, 60));  // Crimson Red
+        clearAllButton.setForeground(Color.WHITE);
+        clearAllButton.setFocusPainted(false);
+        clearAllButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+
+        clearAllButton.addActionListener(e -> {
+            int confirm = JOptionPane.showConfirmDialog(
+                    null,
+                    "Are you sure you want to delete all expense and income records?",
+                    "Confirm Delete",
+                    JOptionPane.YES_NO_OPTION
+            );
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                // Call DataManager to clear all data
+                DataManager.clearAllExpenses();
+                DataManager.clearAllIncomes();
+
+                // Refresh UI
+                expenseTable.refreshTable();
+                incomeTable.refreshTable();
+                summaryPanel.refreshSummary();
+
+                JOptionPane.showMessageDialog(null, "All records cleared successfully!");
+            }
+        });
+
+
+// Set up the button panel and add buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         buttonPanel.add(addExpenseBtn);
         buttonPanel.add(addIncomeBtn);
+        buttonPanel.add(clearAllButton); // Add Clear All button
+        buttonPanel.setBackground(Color.LIGHT_GRAY);
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+// Add panel to the South position
+        add(buttonPanel, BorderLayout.SOUTH);
+
+
+
         buttonPanel.setBackground(new Color(230, 230, 230)); // Light Gray
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 

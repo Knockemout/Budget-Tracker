@@ -76,6 +76,10 @@ public class ExpenseForm extends JFrame {
         setVisible(true);
     }
 
+    public static void clearFields() {
+
+    }
+
     private void saveExpense() {
         try {
             double amount = Double.parseDouble(amountField.getText());

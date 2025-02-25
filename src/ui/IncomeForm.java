@@ -66,6 +66,9 @@ public class IncomeForm extends JFrame {
         setVisible(true);
     }
 
+    public static void clearFields() {
+    }
+
     private void saveIncome() {
         try {
             double amount = Double.parseDouble(amountField.getText());
