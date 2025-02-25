@@ -18,19 +18,47 @@ public class IncomeForm extends JFrame {
         this.summaryPanel = summary;
 
         setTitle("Add Income");
-        setSize(300, 200);
-        setLayout(new GridLayout(4, 2));
+        setSize(350, 220);
+        setLayout(new GridBagLayout());
+        setResizable(false);
+        setLocationRelativeTo(null); // Center the form
 
-        add(new JLabel("Amount:"));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(8, 10, 8, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        Font fieldFont = new Font("SansSerif", Font.PLAIN, 14);
+
+        JLabel amountLabel = new JLabel("Amount:");
+        amountLabel.setFont(fieldFont);
+        gbc.gridx = 0; gbc.gridy = 0;
+        add(amountLabel, gbc);
+
         amountField = new JTextField();
-        add(amountField);
+        amountField.setFont(fieldFont);
+        gbc.gridx = 1; gbc.gridy = 0;
+        add(amountField, gbc);
 
-        add(new JLabel("Source:"));
+        JLabel sourceLabel = new JLabel("Source:");
+        sourceLabel.setFont(fieldFont);
+        gbc.gridx = 0; gbc.gridy = 1;
+        add(sourceLabel, gbc);
+
         sourceField = new JTextField();
-        add(sourceField);
+        sourceField.setFont(fieldFont);
+        gbc.gridx = 1; gbc.gridy = 1;
+        add(sourceField, gbc);
 
-        saveButton = new JButton("Save");
-        add(saveButton);
+        saveButton = new JButton("💾 Save Income");
+        saveButton.setBackground(new Color(76, 175, 80)); // Green Button
+        saveButton.setForeground(Color.WHITE);
+        saveButton.setFont(new Font("SansSerif", Font.BOLD, 14));
+        saveButton.setFocusPainted(false);
+        saveButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+
+        gbc.gridwidth = 2;
+        gbc.gridx = 0; gbc.gridy = 2;
+        add(saveButton, gbc);
 
         saveButton.addActionListener(e -> saveIncome());
 
@@ -49,10 +77,10 @@ public class IncomeForm extends JFrame {
             incomeTable.refreshTable();
             summaryPanel.refreshSummary();
 
-            JOptionPane.showMessageDialog(this, "Income Added!");
+            JOptionPane.showMessageDialog(this, "✅ Income Added Successfully!");
             dispose();
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid amount!");
+            JOptionPane.showMessageDialog(this, "❌ Invalid amount! Please enter a valid number.");
         }
     }
 }

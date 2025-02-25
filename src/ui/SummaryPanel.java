@@ -11,27 +11,35 @@ public class SummaryPanel extends JPanel {
     private JButton showTotalsButton;
 
     public SummaryPanel() {
-        setLayout(new GridLayout(2, 2));
-        Font globalFont = new Font("Arial", Font.BOLD, 15);
-        UIManager.put("Label.font", globalFont);
-        UIManager.put("Button.font", globalFont);
-        UIManager.put("TextField.font", globalFont);
-        UIManager.put("TextArea.font", globalFont);
+        setLayout(new GridLayout(2, 2, 10, 10));
+        setBackground(new Color(245, 245, 245)); // Light Gray Background
+        setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-        totalIncomeLabel = new JLabel("Total Income: $0.00");
-        totalIncomeLabel.setForeground(new Color(76, 175, 80)); // Green Text
-        totalExpensesLabel = new JLabel("Total Expenses: $0.00");
-        totalExpensesLabel.setForeground(new Color(244, 67, 54)); // Red Text
-        balanceLabel = new JLabel("Remaining Balance: $0.00");
-        balanceLabel.setForeground(new Color(33, 150, 243));
+        Font labelFont = new Font("SansSerif", Font.BOLD, 14);
 
-        showTotalsButton = new JButton("Show Totals");
+        totalIncomeLabel = createStyledLabel("Total Income: $0.00", new Color(34, 177, 76), labelFont);
+        totalExpensesLabel = createStyledLabel("Total Expenses: $0.00", new Color(200, 0, 0), labelFont);
+        balanceLabel = createStyledLabel("Remaining Balance: $0.00", new Color(0, 102, 204), labelFont);
+
+        showTotalsButton = new JButton("💰 Show Totals");
+        showTotalsButton.setBackground(new Color(60, 120, 200));
+        showTotalsButton.setForeground(Color.WHITE);
+        showTotalsButton.setFocusPainted(false);
+        showTotalsButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+
         showTotalsButton.addActionListener(e -> updateSummary());
 
         add(totalIncomeLabel);
         add(totalExpensesLabel);
         add(balanceLabel);
         add(showTotalsButton);
+    }
+
+    private JLabel createStyledLabel(String text, Color color, Font font) {
+        JLabel label = new JLabel(text, SwingConstants.CENTER);
+        label.setForeground(color);
+        label.setFont(font);
+        return label;
     }
 
     public void updateSummary() {
@@ -45,6 +53,6 @@ public class SummaryPanel extends JPanel {
     }
 
     public void refreshSummary() {
-
+        updateSummary();
     }
 }
